@@ -1,10 +1,39 @@
+/**
+ * @author Tulasi K Paradarami
+ * Implementation of binary search tree. The tree can be implemented by adding
+ * nodes of any data-type
+ * 
+ * Methods supported:
+ * 	dfs(node): Accepts a node parameter and performs depth-first search
+ * 			from that node.
+ * 	add(node): Add a node to the tree
+ * 	delete(node): Deletes a node from the tree
+ * 	search(node): Search for a node in the tree; return true if found, false otherwise
+ *  
+ * @param <T>
+ */
+
 public class BinaryTree<T extends Comparable<T>> {
+	/*
+	 * Node variable for the root
+	 */
 	private BinaryTreeNode<T> root;
 
+	/*
+	 * Return the root node
+	 */
 	public BinaryTreeNode<T> getRoot() {
 		return root;
 	}
-
+	
+	/*
+	 * Perform depth-first search on the binary tree
+	 * Prints the nodes as they are visited
+	 * A node is considered visited, when all its children are visited
+	 * or if it is a leaf node
+	 * 
+	 */
+	@SuppressWarnings({ "unchecked" })
 	public void dfs(BinaryTreeNode<T> currRoot) {
 		BinaryTreeNode<T> currentNode = currRoot;
 
@@ -24,6 +53,13 @@ public class BinaryTree<T extends Comparable<T>> {
 
 	}
 
+
+	/*
+	 * Add a node to the binary search tree
+	 * If the newly added node is less than parent node, it is added to left tree
+	 * else it is added to the right tree
+	 */
+	@SuppressWarnings("unchecked")
 	public void add(T data) {
 
 		if (root == null) {
@@ -62,6 +98,12 @@ public class BinaryTree<T extends Comparable<T>> {
 		}
 	}
 
+	/*
+	 * Delete a node from the binary search tree
+	 * When a node is deleted, all the children node will be deleted too
+	 * Root node cannot be deleted
+	 */
+	@SuppressWarnings("unchecked")
 	public void delete(T data) {
 		BinaryTreeNode<T> currentNode = root;
 		BinaryTreeNode<T> parent = root;
@@ -107,6 +149,12 @@ public class BinaryTree<T extends Comparable<T>> {
 		return;
 	}
 
+	/*
+	 * Search for node in the binary search tree
+	 * If the node is found, return true
+	 * false otherwise
+	 */
+	@SuppressWarnings("unchecked")
 	public boolean search(T data) {
 		boolean isFound = false;
 		BinaryTreeNode<T> currentNode = root;

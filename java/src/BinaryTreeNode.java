@@ -1,9 +1,28 @@
+/**
+ * @author Tulasi K Paradarami
+ * Implementation of a node class used in binary search tree
+ * 
+ * Following variables are stored in a node
+ * 	Data of the node
+ * 	Reference to left tree
+ * 	Reference to right tree
+ *  	Mark a node as visited when all the children nodes are visited
+ *  	or if it is a leaf node
+ * @param <T>
+ */
+
 public class BinaryTreeNode<T> {
 	T data;
 	boolean visited;
-	BinaryTreeNode left;
-	BinaryTreeNode right;
+	BinaryTreeNode<T> left;
+	BinaryTreeNode<T> right;
 
+	/*
+	 * Node can be initialized in following ways
+	 * data
+	 * data & left node
+	 * data, left node and right node
+	 */
 	public BinaryTreeNode(T data) {
 		this.data = data;
 		this.left = null;
@@ -11,14 +30,15 @@ public class BinaryTreeNode<T> {
 		this.visited = false;
 	}
 
-	public BinaryTreeNode(T data, BinaryTreeNode left) {
+	
+	public BinaryTreeNode(T data, BinaryTreeNode<T> left) {
 		this.data = data;
 		this.left = left;
 		this.right = null;
 		this.visited = false;
 	}
 
-	public BinaryTreeNode(T data, BinaryTreeNode left, BinaryTreeNode right) {
+	public BinaryTreeNode(T data, BinaryTreeNode<T> left, BinaryTreeNode<T> right) {
 		this.data = data;
 		this.left = left;
 		this.right = right;
@@ -39,13 +59,13 @@ public class BinaryTreeNode<T> {
 		this.right = null;
 	}
 
-	public void setData(T data, BinaryTreeNode left) {
+	public void setData(T data, BinaryTreeNode<T> left) {
 		this.data = data;
 		this.left = left;
 		this.right = null;
 	}
 
-	public void setData(T data, BinaryTreeNode left, BinaryTreeNode right) {
+	public void setData(T data, BinaryTreeNode<T> left, BinaryTreeNode<T> right) {
 		this.data = data;
 		this.left = left;
 		this.right = right;
@@ -55,19 +75,20 @@ public class BinaryTreeNode<T> {
 		return data;
 	}
 
-	public void setLeft(BinaryTreeNode left) {
+	public void setLeft(BinaryTreeNode<T> left) {
 		this.left = left;
 	}
 
-	public void setRight(BinaryTreeNode right) {
+	public void setRight(BinaryTreeNode<T> right) {
 		this.right = right;
 	}
 
-	public BinaryTreeNode getLeft() {
+	public BinaryTreeNode<T> getLeft() {
 		return left;
 	}
 
-	public BinaryTreeNode getRight() {
+
+	public BinaryTreeNode<T> getRight() {
 		return right;
 	}
 
